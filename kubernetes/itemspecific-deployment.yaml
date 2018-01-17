@@ -1,0 +1,29 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: itemspecific-deployment
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: itemspecific
+    spec:
+      containers:
+      - image: amela/item_specific
+        name: itemspecific
+        env:
+          - name: KUMULUZEE_DISCOVERY_CLUSTER
+            value: bluemix
+          - name: KUMULUZEE_DISCOVERY_ETCD_HOSTS
+            value: http://etcd:2379
+          - name: KUMULUZEE_CONFIG_ETCD_HOSTS
+            value: http://etcd:2379
+          - name: KUMULUZEE_DATASOURCES0_CONNECTIONURL
+            value: jdbc:postgresql://postgres-itemSpecific:5432/itemSpecific
+          - name: KUMULUZEE_SERVER_BASEURL
+            value: http://169.51.20.118:31331 
+        ports:
+        - containerPort: 8084
+          name: server
+          protocol: TCP
