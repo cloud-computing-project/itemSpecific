@@ -1,15 +1,16 @@
-package si.fri.rso.samples.itemSpecific.models;
+package rso.projects.products;
 
 import org.eclipse.persistence.annotations.UuidGenerator;
+import si.fri.rso.samples.itemSpecific.models.Sale;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity(name = "products")
 @NamedQueries(value =
-{
-    @NamedQuery(name = "Product.getAll", query = "SELECT p FROM products p")
-})
+        {
+                @NamedQuery(name = "Product.getAll", query = "SELECT p FROM products p")
+        })
 @UuidGenerator(name = "idGenerator")
 public class Product {
 
@@ -32,6 +33,9 @@ public class Product {
 
     @Transient
     private List<Sale> sales;
+
+    @Column(name = "returnpolicy_id")
+    private String returnPolicyId;
 
     public String getId() {
         return id;
@@ -79,6 +83,14 @@ public class Product {
 
     public void setSales(List<Sale> sales) {
         this.sales = sales;
+    }
+
+    public String getReturnPolicyId() {
+        return returnPolicyId;
+    }
+
+    public void setReturnPolicyId(String returnPolicyId) {
+        this.returnPolicyId = returnPolicyId;
     }
 
     public String getItemSpecificId() {
