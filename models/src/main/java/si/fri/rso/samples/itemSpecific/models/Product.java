@@ -7,9 +7,9 @@ import java.util.List;
 
 @Entity(name = "products")
 @NamedQueries(value =
-        {
-                @NamedQuery(name = "Product.getAll", query = "SELECT p FROM products p")
-        })
+{
+    @NamedQuery(name = "Product.getAll", query = "SELECT p FROM products p")
+})
 @UuidGenerator(name = "idGenerator")
 public class Product {
 
@@ -22,19 +22,25 @@ public class Product {
     @Column(name = "manufacturer_id")
     private String manufacturerId;
 
-    @Column(name = "itemspecific_id")
-    private String itemSpecificId;
-
-    @Column(name = "category_id")
-    private String categoryId;
-
     private String price;
 
     @Transient
     private List<Sale> sales;
 
+    @Transient
+    private List<Shipping> shippings;
+
+    @Transient
+    private List<Order> orders;
+
     @Column(name = "returnpolicy_id")
     private String returnPolicyId;
+
+    @Column(name = "itemspecific_id")
+    private String itemSpecificId;
+
+    @Column(name = "category_id")
+    private String categoryId;
 
     public String getId() {
         return id;
@@ -90,6 +96,22 @@ public class Product {
 
     public void setReturnPolicyId(String returnPolicyId) {
         this.returnPolicyId = returnPolicyId;
+    }
+
+    public List<Shipping> getShippings() {
+        return shippings;
+    }
+
+    public void setShippings(List<Shipping> shippings) {
+        this.shippings = shippings;
+    }
+
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
     }
 
     public String getItemSpecificId() {
