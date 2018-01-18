@@ -24,10 +24,11 @@ public class ItemSpecific {
 
     private String features;
 
+    @Transient
+    private List<Product> products;
+
     private String brand;
 
-    @Column(name = "product_id")
-    private String productId;
 
     public String getId() {
         return id;
@@ -69,11 +70,19 @@ public class ItemSpecific {
         this.brand = brand;
     }
 
-    public String getProductId() {
-        return productId;
+    public String getItemType() {
+        return itemType;
     }
 
-    public void setProductId(String productId) {
-        this.productId = productId;
+    public void setItemType(String itemType) {
+        this.itemType = itemType;
+    }
+
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
     }
 }
