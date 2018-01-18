@@ -1,7 +1,6 @@
-package rso.projects.products;
+package si.fri.rso.samples.itemSpecific.models;
 
 import org.eclipse.persistence.annotations.UuidGenerator;
-import si.fri.rso.samples.itemSpecific.models.Sale;
 
 import javax.persistence.*;
 import java.util.List;
