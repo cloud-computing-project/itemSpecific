@@ -22,14 +22,6 @@ public class Product {
     @Column(name = "manufacturer_id")
     private String manufacturerId;
 
-    public String getItemSpecificId() {
-        return itemSpecificId;
-    }
-
-    public void setItemSpecificId(String itemSpecificId) {
-        this.itemSpecificId = itemSpecificId;
-    }
-
     @Column(name = "itemspecific_id")
     private String itemSpecificId;
 
@@ -87,5 +79,13 @@ public class Product {
 
     public void setSales(List<Sale> sales) {
         this.sales = sales;
+    }
+
+    public String getItemSpecificId() {
+        return itemSpecificId;
+    }
+
+    public void setItemSpecificId(String itemSpecificId) {
+        this.itemSpecificId = itemSpecificId;
     }
 }

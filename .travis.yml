@@ -14,7 +14,7 @@ cache:
   - $HOME/.m2
 
 env:
-  - DOCKER_IMAGE=amela/item_specific
+  - DOCKER_IMAGE=amela/item_specific:etcd
 
 script:
   - mvn clean package -U
